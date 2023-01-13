@@ -1,0 +1,31 @@
+header{
+  background-image: linear-gradient(to right, rgb(144, 144, 243) , rgb(22, 16, 54));
+}
+
+h1{
+  position: relative;
+  text-align: end;
+  right: 20%;
+  color: white;
+  font-weight: bold;
+}
+
+.aside{
+  display: flex;
+  flex-direction: column;
+  width: 18rem;
+  padding-left: 1rem;
+  gap: .5rem;
+}
+
+.aside button, .aside input{
+  width: 18rem;
+}
+
+.btn{
+  background-color: rgb(77, 77, 210);
+}
+
+main{
+  display: flex;
+}
