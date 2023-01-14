@@ -5,8 +5,16 @@ const mainForecast = $(".main-forecast");
 const fiveDay = $(".five-day-forecasts");
 
 // This gets the search bar value.
-let searchInput = $(".search").val();
-let savedCity = $(".savedCity").val();
+const searchInput = $(".search").val();
+const savedCity = $(".savedCity").val();
+
+// These are the API addresses.
+const geoCall = `http://api.openweathermap.org/geo/1.0/direct?q=${searchInput}&limit=1&appid=5aa315b385603c7937d78408d3a4da4f`;
+const weatherCalls = `api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid=5aa315b385603c7937d78408d3a4da4f`
+
+// These are the lat and long variables.
+let lattitude;
+let longitude;
 
 // This is the event listener for buttons.
 $(".aside").click(function(){
