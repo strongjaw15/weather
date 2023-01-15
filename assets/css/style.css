@@ -7,6 +7,9 @@ h1{
   text-align: end;
   right: 20%;
   color: white;
+}
+
+h1, h2, h3, h4{
   font-weight: bold;
 }
 
@@ -16,6 +19,7 @@ h1{
   width: 18rem;
   padding-left: 1rem;
   gap: .5rem;
+  margin-right: 3px;
 }
 
 .aside button, .aside input{
@@ -28,4 +32,32 @@ h1{
 
 main{
   display: flex;
+  margin-right: 7rem;
+}
+
+.main-forecast{
+  border: 1px solid black;
+  padding: 3px;
+}
+
+.five-day-forecasts{
+  padding: 3px;
+}
+
+.weather-container{
+  margin-left: 2rem;
+  /* outline: 1px solid red; */
+  flex-grow: 1;
+}
+
+.forecast-cards{
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.forecast-card{
+  background-color: rgb(48, 48, 77);
+  color: white;
+  padding: 1rem;
 }
