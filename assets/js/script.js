@@ -69,6 +69,7 @@ function getCoordinates(){
       
       lat = easyData[0].lat;
       lon = easyData[0].lon;
+      city = easyData[0].name;
       console.log(lat)
       getWeather()
   })
@@ -104,5 +105,42 @@ function sortEasyData(easyData3){
       fiveDayWeather.push(object)
     }
   })
-console.log(fiveDayWeather)
+  console.log(fiveDayWeather)
+  writeForecast()
+}
+
+function writeForecast(){
+  $(".weather-container").innerHTML="";
+  $(".weather-container").append(
+    $("<div>").addClass("main-forecast").append(
+      $("<h2>").text(`${city} ${moment(fiveDayWeather[0].dt).format("M, D, YYYY")} - ${fiveDayWeather[0].weather[0].description}`),
+      $("<h6>").text(`Temperature: ${kelvinToFahrenheit(fiveDayWeather[0].main.temp)}`),
+      $("<h6>").text(`Wind: ${fiveDayWeather[0].wind.speed} MPH`),
+      $("<h6>").text(`Humidity: ${fiveDayWeather[0].main.humidity}%`)
+    )
+  )
+}
+
+/* <div class="weather-container">
+      <div class="main-forecast">
+        <h2>Atlanta 9/13/2022 - Sunny</h2>
+        <h6>Temperature: 76.62*F</h6>
+        <h6>Wind: 8.43 MPH</h6>
+        <h6>Humidity: 44%</h6>
+      </div>
+      <div class="five-day-forecasts">
+        <h3>Five-Day Forecast:</h3>
+        <div class="forecast-cards">
+          <div class="forecast-card">
+            <h4>9/14/2022</h4>
+            <h6>Sunny</h6>
+            <h6>Temp: 76.62*F</h6>
+            <h6>Wind: 8.43 MPH</h6>
+            <h6>Humidity: 44%</h6>
+          </div> */
+
+// This converts degrees Kelvin to degrees Fahrenheit.
+function kelvinToFahrenheit(kelvin){
+  let fahrenheit = [[kelvin - 273.15] * 9 / 5] + 32;
+  return Math.round(fahrenheit)
 }
