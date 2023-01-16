@@ -14,4 +14,4 @@ https://strongjaw15.github.io/weather/
 
 ## Visuals
 
-Go the extra mile and write tests for your application. Then provide examples on how to run them here.
+![](./assets/images/Weather.gif)
