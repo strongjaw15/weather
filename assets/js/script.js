@@ -101,7 +101,7 @@ $(".clear-button").click(function(){
 
 // This gets the coordinates for the searched city.
 function getCoordinates(){
-  geoCall = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${apiKey}`;
+  geoCall = `https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${apiKey}`;
   fetch(geoCall)
     .then(function(reply){
       return reply.json()
@@ -115,7 +115,7 @@ function getCoordinates(){
 }
 
 function getWeather(){
-  weatherCall = `http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}`;
+  weatherCall = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}`;
   fetch(weatherCall)
     .then(function(reply){
       return reply.json()
