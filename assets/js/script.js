@@ -1,6 +1,4 @@
-// City, date, temp, wind, humidity
-
-// These are other variables
+// These are various variables.
 let city;
 let fiveDayWeather = [];
 let unsortedWeather = [];
@@ -29,31 +27,6 @@ const apiKey = "5aa315b385603c7937d78408d3a4da4f"
 let geoCall;
 let weatherCall;
 
-//I've left this old code for event listeners commented out so I can get help figuring out what is wrong with it after the weekend.
-
-// $(".aside").addEventListener("click", function(event){
-//   if(event.target.matches("button.search-button")){
-//     console.log("hi");
-//     getCoordinates(searchInput)
-//   }
-//   else if(event.target.matches("button.saved-city")){
-//     getCoordinates(savedCity)
-//   }
-// })
-
-// $(".aside").click(function(){
-//   if($(this.matches("button#search-button"))){
-//     console.log("hi")
-//     // getCoordinates(searchInput)
-//   }
-//   else if($(this.matches("saved-city"))){
-//     // getCoordinates(savedCity)
-//   }
-//   else {
-//     return
-//   }
-// })
-
 // This fills the saved cities card.
 savedCitiesStart();
 
@@ -70,8 +43,6 @@ function savedCitiesStart(){
 }
 
 function newSavedCity(){
-  newAr = JSON.parse(localStorage.getItem("saveData"));
-  newAr ? saveData = newAr : saveData = [];
   $(".list-group").append(
     $("<button>").addClass("list-group-item place").text(`${saveData[saveData.length-1]}`).data("id", `${saveData[saveData.length-1]}`)
   )
@@ -86,17 +57,16 @@ $("#search-button").click(function(){
     getCoordinates()};
 })
 
-$(".place").click(function(){
+$("#list-of-cities").on("click", ".place", function(){
   city = $(this).data("id");
   getCoordinates();
-  console.log("hi")
 })
 
 $(".clear-button").click(function(){
   localStorage.clear();
   saveData = [];
   city=""
-  $(".list-group").detach();
+  $(".list-group").empty();
 })
 
 // This gets the coordinates for the searched city.
